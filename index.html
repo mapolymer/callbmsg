@@ -38,11 +38,14 @@
   <!-- ヘッダー -->
   <header class="w-full max-w-2xl px-4 py-6 text-center border-b border-gray-800">
     <div class="inline-block bg-gradient-to-r from-amber-500 to-yellow-300 text-black font-black text-xs px-3 py-1 rounded-full mb-2 tracking-widest uppercase">
-      BMSG FAN APP
+      ビメスジ FAN APP
     </div>
     <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center justify-center gap-2">
       <i class="fa-solid font-black text-yellow-400 fa-bullhorn"></i> オタクコール練習アプリ
     </h1>
+    <p class="text-[11px] text-gray-400 mt-2">
+      ※公式YouTube動画を再生しながら練習できます（再生数は公式にカウントされます）。
+    </p>
   </header>
 
   <main class="w-full max-w-2xl px-4 mt-6 flex-grow">
@@ -95,7 +98,7 @@
 
     </div>
 
-    <!-- コールタイムライン（タップでその秒数へスキップ） -->
+    <!-- コールタイムライン -->
     <div class="glass-card rounded-2xl p-4 sm:p-6 mb-6">
       <h3 class="text-sm font-bold text-gray-300 mb-3 flex items-center justify-between">
         <span><i class="fa-solid fa-list-ol text-yellow-400 mr-2"></i>コール一覧・タイムライン</span>
@@ -106,7 +109,7 @@
       </div>
     </div>
 
-    <!-- リクエスト＆X拡散エリア -->
+    <!-- リクエスト＆X投稿エリア -->
     <div class="glass-card rounded-2xl p-5 text-center border border-yellow-500/20">
       <h3 class="text-base font-bold text-white mb-2">
         🎤 「この曲のコールも作って！」を募集中！
@@ -137,10 +140,10 @@
         1:03の『Take it back!』も完璧！ライブ会場での声出し準備はバッチリです！
       </p>
 
-      <button onclick="shareExamResult()" class="w-full bg-black text-white border border-gray-600 hover:border-white font-bold text-sm py-3 rounded-xl mb-3 transition flex items-center justify-center gap-2">
+      <button onclick="shareExamResult()" class="w-full bg-black text-white border border-gray-600 hover:border-white font-bold text-sm py-3 rounded-xl mb-1 transition flex items-center justify-center gap-2">
         <i class="fa-brands fa-x-twitter"></i> Xで結果をシェアする
       </button>
-      <p class="text-[10px] text-gray-500 mb-4">※Xの仕様上、テキストのみが投稿されます。</p>
+      <p class="text-[10px] text-gray-500 mb-4">※Xの仕様上、テキストのみがシェアされます（画像は自動添付されません）。</p>
 
       <button onclick="closeModal()" class="text-xs text-gray-400 font-bold hover:text-white underline">
         閉じる
@@ -148,51 +151,57 @@
     </div>
   </div>
 
-  <!-- フッター -->
-  <footer class="w-full max-w-2xl text-center text-[10px] text-gray-600 mt-8 px-4 leading-relaxed">
-    ※当サイトは個人のファンが制作した非公式コンテンツです。<br>
-    所属事務所・アーティスト本人様とは一切関係ありません。
+  <!-- フッター / 免責事項 -->
+  <footer class="w-full max-w-2xl text-center text-[10px] text-gray-500 mt-8 px-4 leading-relaxed">
+    <p class="mb-1">
+      ※当サイトは個人のファンが制作した非公式コンテンツです。所属事務所・アーティスト本人様とは一切関係ありません。
+    </p>
+    <p>
+      ※楽曲音源および映像の権利は各権利所有者に帰属します。当サイトでは公式YouTubeの埋め込み機能を利用しています。
+    </p>
   </footer>
 
   <!-- YouTube Iframe API -->
   <script src="https://www.youtube.com/iframe_api"></script>
 
   <script>
-    // 曲データベース（簡単に曲を増やせます！）
+    // 曲データベース（最新修正版タイムスタンプ）
     const songDatabase = {
       "usotsuki": {
         title: "STARGLOW / USOTSUKI",
         youtubeId: "Nk3b5KnL4hg",
         callData: [
           { start: 63, end: 65, text: "＼ Take it back! ／" },
-          { start: 66, end: 68, text: "＼ テテテTake it back! ／" },
-          { start: 77, end: 78, text: "＼ Take it back! ／" },
-          { start: 78, end: 80, text: "＼ Take it back! ／" },
-          { start: 119, end: 122, text: "＼ Take it back! ／" },
-          { start: 124, end: 127, text: "＼ テテテTake it back! ／" },
-          { start: 134, end: 135, text: "＼ Take it back! ／" },
-          { start: 135, end: 137, text: "＼ Take it back! ／" },
-          { start: 159, end: 161, text: "＼ Take it back! ／" },
-          { start: 163, end: 166, text: "＼ テテテTake it back! ／" },
-          { start: 174, end: 175, text: "＼ Take it back! ／" },
-          { start: 175, end: 177, text: "＼ Take it back! ／" },
-          { start: 181, end: 182, text: "＼ Take it back! ／" },
-          { start: 183, end: 185, text: "＼ Take it back! ／" }
+          { start: 67, end: 69, text: "＼ テテテTake it back! ／" },
+          { start: 78, end: 79, text: "＼ Take it back! ／" },
+          { start: 79, end: 80, text: "＼ Take it back! ／" },
+          { start: 120, end: 122, text: "＼ Take it back! ／" },
+          { start: 133, end: 135, text: "＼ Take it back! ／" },
+          { start: 135, end: 136, text: "＼ Take it back! ／" },
+          { start: 138, end: 139, text: "＼ Take it back! ／" },
+          { start: 139, end: 140, text: "＼ Take it back! ／" },
+          { start: 160, end: 162, text: "＼ Take it back! ／" },
+          { start: 163, end: 165, text: "＼ テテテTake it back! ／" },
+          { start: 173, end: 175, text: "＼ Take it back! ／" },
+          { start: 175, end: 176, text: "＼ Take it back! ／" },
+          { start: 177, end: 179, text: "＼ Take it back! ／" },
+          { start: 179, end: 180, text: "＼ Take it back! ／" },
+          { start: 182, end: 183, text: "＼ Take it back! ／" },
+          { start: 183, end: 185, text: "＼ Take it back! ／" },
+          { start: 186, end: 187, text: "＼ Take it back! ／" },
+          { start: 187, end: 188, text: "＼ Take it back! ／" }
         ]
       }
-      // ※今後リクエストが多い曲をここに追加できます！
     };
 
     let currentSongKey = "usotsuki";
     let player;
     let timerId = null;
-    let currentMode = "practice"; // 'practice' or 'exam'
+    let currentMode = "practice";
 
-    // 検定モード用のスコア管理
     let activeCallIndex = -1;
     let hitCalls = new Set();
 
-    // 画面初期化
     window.addEventListener('DOMContentLoaded', () => {
       initSongDropdown();
     });
@@ -208,7 +217,6 @@
       });
     }
 
-    // YouTube API Ready
     function onYouTubeIframeAPIReady() {
       const currentSong = songDatabase[currentSongKey];
       player = new YT.Player('player', {
@@ -235,7 +243,6 @@
       }
     }
 
-    // リアルタイム時間チェック（コア処理）
     function checkTime() {
       if (!player || !player.getCurrentTime) return;
       const currentTime = player.getCurrentTime();
@@ -259,7 +266,6 @@
       updateTimelineHighlight(currentTime);
     }
 
-    // 曲切り替え
     function changeSong(key) {
       currentSongKey = key;
       const song = songDatabase[key];
@@ -270,7 +276,6 @@
       resetExam();
     }
 
-    // タイムライン一覧描画
     function renderTimeline() {
       const list = document.getElementById("timeline-list");
       list.innerHTML = "";
@@ -315,7 +320,6 @@
       });
     }
 
-    // モード切り替え（練習 / 検定）
     function switchMode(mode) {
       currentMode = mode;
       const btnPractice = document.getElementById("tab-practice");
@@ -334,7 +338,6 @@
       }
     }
 
-    // 検定モード：叫べたカウント
     function recordShout() {
       if (activeCallIndex !== -1) {
         hitCalls.add(activeCallIndex);
@@ -349,7 +352,6 @@
       activeCallIndex = -1;
     }
 
-    // 検定結果モーダル表示
     function showExamResult() {
       const totalCalls = songDatabase[currentSongKey].callData.length;
       const scorePercent = Math.round((hitCalls.size / totalCalls) * 100);
@@ -380,7 +382,6 @@
       document.getElementById("result-modal").classList.add("hidden");
     }
 
-    // Xへ結果シェア
     function shareExamResult() {
       const songTitle = songDatabase[currentSongKey].title;
       const rank = document.getElementById("res-rank").innerText;
@@ -391,13 +392,12 @@
         `判定：${rank}\n` +
         `成功率：${score}\n\n` +
         `みんなもコール練習してライブで叫ぼう！\n` +
-        `#ビメスジコール練習アプリ`;
+        `#ビメスジコールリクエスト #コール練習アプリ`;
 
       const shareUrl = `https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
       window.open(shareUrl, '_blank');
     }
 
-    // リクエストをXにつぶやく
     function requestSongToX() {
       const text = `🎤 #ビメスジコールリクエスト 🎤\n` +
         `【曲名】:\n` +
